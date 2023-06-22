@@ -24,7 +24,7 @@ def hello_world():
 @app.route("/search",methods=["POST"])
 def search():
     searchName = request.form["select-poke"]
-    return render_template("index.html",pokes=pokemon_list,typeImages=typeImages,poke_data = scrapper.scrape_data(searchName))
+    return render_template("index.html",pokes=pokemon_list,typeImages=typeImages,poke_data = scrapper.scrape_data(searchName)[0])
 
 if __name__=="__main__":
     app.run(host="0.0.0.0",port=5001,debug=True)

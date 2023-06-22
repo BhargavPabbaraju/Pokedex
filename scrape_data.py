@@ -3,10 +3,14 @@ from bs4 import BeautifulSoup as bs
 from urllib.request import Request,urlopen
 
 
+
+
+
 class Scrapper:
     def __init__(self):
         self.poke_data={}
         self.name = "Bulbasaur"
+        self.forms=[]
     
     def scrape_data(self,name):
         preprocessed_name = name.replace('.','').replace(' ','-').replace('\xe9','e')
@@ -15,21 +19,25 @@ class Scrapper:
 
         urlclient = urlopen(site).read()
         self.html = bs(urlclient,"html.parser")
-        forms = self.html.find_all("div",{"class":"sv-tabs-tab-list"})[0].find_all("a")
-        form = 0
+        forms = self.html.find_all("div",{"class":"sv-tabs-panel-list"})[0]
+        forms = forms.find_all("div",{"class":"sv-tabs-panel","id":lambda x: 'basic'in x })
+      
         images = self.html.find_all("img",{"fetchpriority":"high"})[1:]
-        self.poke_data['image_link'] = images[form]['src'].strip('\n')
-        self.poke_data['name'] = name
+        for form in range(len(forms)):
+          self.poke_data['image_link'] = images[form]['src'].strip('\n')
+          
+          self.poke_data['name'] = name
+          self.html = forms[form]
+          self.dex()
 
-        self.dex()
+          self.training()
 
-        self.training()
+          self.breeding()
+          self.base_stats()
+          #self.dex_entry()
+          self.forms.append(self.poke_data)
 
-        self.breeding()
-        self.base_stats()
-        self.dex_entry()
-
-        return self.poke_data
+        return self.forms
 
 
     def dex(self):
@@ -38,6 +46,10 @@ class Scrapper:
 
         tds = table.find_all("td")
         self.poke_data["index"] = '#'+tds[0].text
+
+        print("{0:03d}".format(int(self.poke_data["index"][1:])))
+        self.poke_data['serebii_image'] = "https://www.serebii.net/pokemon/art/{0:03d}.png".format(int(self.poke_data["index"][1:]))
+
         self.poke_data['types']=[]
         for a in tds[1].find_all("a"):
             self.poke_data['types'].append(a.text.strip('\n'))
@@ -113,3 +125,4 @@ class Scrapper:
         except:
             pass
     
+
