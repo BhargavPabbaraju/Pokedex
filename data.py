@@ -239,6 +239,7 @@ typeImages = {'Normal': {'rse': 'archives.bulbagarden.net/media/upload/b/bb/Norm
   'teragem': 'archives.bulbagarden.net/media/upload/0/0a/TeraGem_Steel.png'},
  'Fairy': {'xy': 'archives.bulbagarden.net/media/upload/b/ba/FairyIC_XY.png',
   'sm': 'archives.bulbagarden.net/media/upload/2/25/FairyIC_SM.png',
+  'big':'forums.pokecharms.com/files/fairyic_big-1-png.946213/',
   'pe': 'archives.bulbagarden.net/media/upload/thumb/a/a4/FairyIC_PE.png/64px-FairyIC_PE.png',
   'ic': 'archives.bulbagarden.net/media/upload/thumb/3/31/FairyIC.png/64px-FairyIC.png',
   'swsh': 'archives.bulbagarden.net/media/upload/thumb/c/c6/Fairy_icon_SwSh.png/64px-Fairy_icon_SwSh.png',
@@ -246,4 +247,5 @@ typeImages = {'Normal': {'rse': 'archives.bulbagarden.net/media/upload/b/bb/Norm
   'sv': 'archives.bulbagarden.net/media/upload/thumb/c/c6/FairyIC_SV.png/64px-FairyIC_SV.png',
   'la': 'archives.bulbagarden.net/media/upload/thumb/b/b1/Fairy_icon_LA.png/64px-Fairy_icon_LA.png',
   'tera': 'archives.bulbagarden.net/media/upload/thumb/5/5d/FairyIC_Tera.png/64px-FairyIC_Tera.png',
-  'teragem': 'archives.bulbagarden.net/media/upload/b/b0/TeraGem_Fairy.png'}}
+  'teragem': 'archives.bulbagarden.net/media/upload/b/b0/TeraGem_Fairy.png'},
+  '???':{'big':'https://archives.bulbagarden.net/media/upload/3/3c/UnknownIC_Big.png'}}

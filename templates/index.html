@@ -23,12 +23,28 @@
             {% if poke_data: %}
                 <img class="main-sprite" src={{poke_data['image_link']}} height="120px">
                 <p class="name">{{poke_data['name']}}</p>
+                <p class="species">{{poke_data['species']}}</p>
                 <div class="ht">
                     Ht:<span class="height">{{(poke_data['ht']+' ').rjust(8,'ㅤ')}}</span>
                 </div>
                 <div class="wt">
                     Wt:<span class="weight">{{poke_data['wt'].rjust(8,'ㅤ')}}</span>
                 </div>
+                <div class="stat-headings">
+                    <p class="atk-heading">ATK</p>
+                    <p class="def-heading">DEF</p>
+                    <p class="spa-heading">SP.A</p>
+                    <p class="spd-heading">SP.D</p>
+                    <p class="sp-heading">SP</p>
+                </div>
+                <div class="stats">
+                    <p class="atk">{{poke_data['atk'].center(3,'ㅤ')}}</p>
+                    <p class="def">{{poke_data['def'].center(3,'ㅤ')}}</p>
+                    <p class="spa">{{poke_data['sp.atk'].center(3,'ㅤ')}}</p>
+                    <p class="spd">{{poke_data['sp.def'].center(3,'ㅤ')}}</p>
+                    <p class="sp">{{poke_data['speed'].center(3,'ㅤ')}}</p>
+                </div>
+               
                 
                 <img  class="type1" src={{'https://'+typeImages[poke_data['types'][0]]['big']}}>
                 {% if poke_data['types']|length >1: %}

@@ -16,12 +16,7 @@
     
 }
 
-.name{
-    color:white;
-    position:absolute;
-    left:440px;
-    top:198px;
-}
+
 
 .ht,.wt{
     color:black;
@@ -69,5 +64,87 @@
     left:128px;
     top:198px;
 
+    
+}
+
+.atk-heading{
+    position:absolute;
+    left:408px;
+    top:280px;
+    
+}
+
+.atk{
+    position:absolute;
+    left:408px;
+    top:312px;
+}
+
+.def-heading{
+    position:absolute;
+    left:464px;
+    top:280px;
+    
+}
+
+.def{
+    position:absolute;
+    left:464px;
+    top:312px;
+}
+
+.spa-heading{
+    position:absolute;
+    left:520px;
+    top:280px;
+    
+}
+
+.spa{
+    position:absolute;
+    left:524px;
+    top:312px;
+}
+
+
+.spd-heading{
+    position:absolute;
+    left:578px;
+    top:280px;
+    
+}
+
+.spd{
+    position:absolute;
+    left:580px;
+    top:312px;
+}
+
+.sp-heading{
+    position:absolute;
+    left:648px;
+    top:280px;
+    
+}
+
+.sp{
+    position:absolute;
+    left:640px;
+    top:312px;
+}
+
+.species{
+    color:white;
+    position:absolute;
+    left:440px;
+    top:230px;
+    font-size:12px;
+}
+
+.name{
+    color:white;
+    position:absolute;
+    left:440px;
+    top:190px;
     
 }
