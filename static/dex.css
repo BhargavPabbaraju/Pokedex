@@ -1,0 +1,73 @@
+
+@font-face{
+    font-family: rby;
+    src: url('PKMN RBYGSC.ttf');
+    font-weight: bold;}
+
+
+
+.outer{
+    display: flex;
+  justify-content: center;
+}
+.pokedex{
+    position:relative;
+    font-family:rby;
+    
+}
+
+.name{
+    color:white;
+    position:absolute;
+    left:440px;
+    top:198px;
+}
+
+.ht,.wt{
+    color:black;
+    position:absolute;
+    left:128px;
+    top:424px;
+    font-size:12px;
+    
+    
+}
+
+.ht .height,.wt .weight{
+    position:relative;
+    font-size:12px;
+    left:4px;
+}
+
+.wt{
+    top:448px;
+    
+}
+
+
+
+.type1{
+    position:absolute;
+    left:402px;
+    top:446px;
+    width:120px;
+    height:36px;
+    
+}
+
+.type2{
+    position:absolute;
+    left:548px;
+    top:446px;
+    width:120px;
+    height:36px;
+    
+}
+
+.main-sprite{
+    position:absolute;
+    left:128px;
+    top:198px;
+
+    
+}
