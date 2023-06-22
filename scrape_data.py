@@ -13,6 +13,8 @@ class Scrapper:
         self.forms=[]
     
     def scrape_data(self,name):
+        
+        self.forms=[]
         preprocessed_name = name.replace('.','').replace(' ','-').replace('\xe9','e')
         url = f"https://pokemondb.net/pokedex/{preprocessed_name}"
         site = Request(url, headers={"User-Agent": "Mozilla/5.0"})
@@ -23,7 +25,9 @@ class Scrapper:
         forms = forms.find_all("div",{"class":"sv-tabs-panel","id":lambda x: 'basic'in x })
       
         images = self.html.find_all("img",{"fetchpriority":"high"})[1:]
+        
         for form in range(len(forms)):
+          self.poke_data={}
           self.poke_data['image_link'] = images[form]['src'].strip('\n')
           
           self.poke_data['name'] = name
@@ -124,5 +128,3 @@ class Scrapper:
             self.poke_data['desc'] = tds[-1].text.strip('\n')
         except:
             pass
-    
-
