@@ -10,7 +10,7 @@ app = Flask(__name__)
 connection = "mongodb+srv://user1:PassWord@cluster0.wpysgqb.mongodb.net/?retryWrites=true&w=majority"
 client = pymongo.MongoClient(connection,tlsCAFile=certifi.where())
 db =client['poke']
-coll = db['pokemon_list']
+coll = db['pokemon_db']
 pokemon_list = sorted(set([ x['name'] for x in coll.find()]))
 
 scrapper = Scrapper()
@@ -24,7 +24,9 @@ def hello_world():
 @app.route("/search",methods=["POST"])
 def search():
     searchName = request.form["select-poke"]
-    return render_template("index.html",pokes=pokemon_list,typeImages=typeImages,poke_data = scrapper.scrape_data(searchName)[0])
+    form = 0
+    poke = coll.find({"name":searchName})[0]['data'][form]
+    return render_template("index.html",pokes=pokemon_list,typeImages=typeImages,poke_data = poke)
 
 if __name__=="__main__":
     app.run(host="0.0.0.0",port=5001,debug=True)
