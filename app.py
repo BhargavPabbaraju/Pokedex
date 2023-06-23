@@ -1,9 +1,11 @@
 from flask import Flask,render_template,request
+from flask_cors import CORS,cross_origin
 import pymongo
 import certifi
 
+
 from data import typeImages
-from scrape_data import Scrapper
+
 
 app = Flask(__name__)
 
@@ -13,7 +15,6 @@ db =client['poke']
 coll = db['pokemon_db']
 pokemon_list = sorted(set([ x['name'] for x in coll.find()]))
 
-scrapper = Scrapper()
 
 currentForm = 0
 poke = None
@@ -21,10 +22,12 @@ currentPoke = None
 
 
 @app.route("/")
+@cross_origin()
 def hello_world():
     return render_template("index.html",pokes=pokemon_list,typeImages=typeImages,poke_data=None,form=0)
 
 @app.route("/search",methods=["POST"])
+@cross_origin()
 def search():
     global currentForm,currentPoke,poke
     searchName = request.form["select-poke"]
@@ -38,6 +41,7 @@ def search():
 
 
 @app.route("/formchange",methods=["POST"])
+@cross_origin()
 def formchange():
     global currentForm
     typ = request.form['action']
