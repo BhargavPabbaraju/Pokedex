@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="static/dex.css">
 </head>
 <body class="content">
-    <form class="form-group form row pt-2" method="post" action="search">
+    <form class="form-group form row pt-2" method="post" action="/search">
         <label for="select-poke" class="text-primary col-2 ps-4 pe-2 pt-1 fs-5">Select Pokemon:</label>
         <select name="select-poke" id="select-poke" class="select-poke form-control col" onchange="this.form.submit()">
             <option>Select a Pokemon</option>
@@ -18,17 +18,17 @@
         </select>
     </form>
     <div class="outer">
-        <div class="pokedex">
+        <form class="pokedex" method="post" action="/formchange" id="pokedex">
             <img src="/static/image.png">
             {% if poke_data: %}
-                <img class="main-sprite" src={{poke_data['serebii_image']}} height="120px">
-                <p class="name">{{poke_data['name']}}</p>
-                <p class="species">{{poke_data['species']}}</p>
+                <img class="main-sprite" src={{poke_data[form]['serebii_image']}} height="120px">
+                <p class="name">{{poke_data[form]['name']}}</p>
+                <p class="species">{{poke_data[form]['species']}}</p>
                 <div class="ht">
-                    Ht:<span class="height">{{(poke_data['ht']+' ').rjust(8,'ㅤ')}}</span>
+                    Ht:<span class="height">{{(poke_data[form]['ht']+' ').rjust(8,'ㅤ')}}</span>
                 </div>
                 <div class="wt">
-                    Wt:<span class="weight">{{poke_data['wt'].rjust(8,'ㅤ')}}</span>
+                    Wt:<span class="weight">{{poke_data[form]['wt'].rjust(8,'ㅤ')}}</span>
                 </div>
                 <div class="stat-headings">
                     <p class="atk-heading">ATK</p>
@@ -38,21 +38,36 @@
                     <p class="sp-heading">SP</p>
                 </div>
                 <div class="stats">
-                    <p class="atk">{{poke_data['atk'].center(3,'ㅤ')}}</p>
-                    <p class="def">{{poke_data['def'].center(3,'ㅤ')}}</p>
-                    <p class="spa">{{poke_data['sp.atk'].center(3,'ㅤ')}}</p>
-                    <p class="spd">{{poke_data['sp.def'].center(3,'ㅤ')}}</p>
-                    <p class="sp">{{poke_data['speed'].center(3,'ㅤ')}}</p>
+                    <p class="atk">{{poke_data[form]['atk'].center(3,'ㅤ')}}</p>
+                    <p class="def">{{poke_data[form]['def'].center(3,'ㅤ')}}</p>
+                    <p class="spa">{{poke_data[form]['sp.atk'].center(3,'ㅤ')}}</p>
+                    <p class="spd">{{poke_data[form]['sp.def'].center(3,'ㅤ')}}</p>
+                    <p class="sp">{{poke_data[form]['speed'].center(3,'ㅤ')}}</p>
                 </div>
                
                 
-                <img  class="type1" src={{'https://'+typeImages[poke_data['types'][0]]['big']}}>
-                {% if poke_data['types']|length >1: %}
-                    <img  class="type2" src={{'https://'+typeImages[poke_data['types'][1]]['big']}}>
+                <img  class="type1" src={{'https://'+typeImages[poke_data[form]['types'][0]]['big']}}>
+                {% if poke_data[form]['types']|length >1: %}
+                    <img  class="type2" src={{'https://'+typeImages[poke_data[form]['types'][1]]['big']}}>
                 {% endif %}
+                
+                {% if form >0 and poke_data|length >1 : %}
+                <input type="submit" name="action" value="prev" class="prev-button"/>
+                {% endif %}
+                {% if poke_data|length >1 and (form+1) < poke_data|length : %}
+                <input type="submit" name="action" value="next" class="next-button"/>
+                {% endif %}
+                
+
+               
+
+
+               
             {% endif %}
-        </div>
+            </form>
     </div>
+
+   
     
     
 </body>
@@ -63,4 +78,6 @@
         $('.select-poke').select2();
 
     })
+
+   
 </script>

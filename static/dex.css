@@ -148,3 +148,27 @@
     top:190px;
     
 }
+
+.prev-button{
+    background: transparent;
+    border: none !important;
+    font-size:0;
+    position:absolute;
+    left:272px;
+    top:412px;
+    width:44px;
+    height:48px;
+
+}
+
+.next-button{
+    background: transparent;
+    border: none !important;
+    font-size:0;
+    position:absolute;
+    left:333px;
+    top:412px;
+    width:44px;
+    height:48px;
+
+}
