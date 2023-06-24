@@ -21,7 +21,8 @@
         <form class="pokedex" method="post" action="/formchange" id="pokedex">
             <img src="/static/image.png">
             {% if poke_data: %}
-                <img class="main-sprite" src={{poke_data[form]['serebii_image']}} height="120px">
+                <img class="main-sprite" src={{poke_data[form]['image_bytes']}} height="120px">
+               
                 <p class="name">{{poke_data[form]['name']}}</p>
                 <p class="species">{{poke_data[form]['species']}}</p>
                 <div class="ht">
@@ -46,9 +47,9 @@
                 </div>
                
                 
-                <img  class="type1" src={{'https://'+typeImages[poke_data[form]['types'][0]]['big']}}>
+                <img  class="type1" src={{typeImages[poke_data[form]['types'][0]]['big']}}>
                 {% if poke_data[form]['types']|length >1: %}
-                    <img  class="type2" src={{'https://'+typeImages[poke_data[form]['types'][1]]['big']}}>
+                    <img  class="type2" src={{typeImages[poke_data[form]['types'][1]]['big']}}>
                 {% endif %}
                 
                 {% if form >0 and poke_data|length >1 : %}
@@ -66,7 +67,7 @@
             {% endif %}
             </form>
     </div>
-
+    
    
     
     

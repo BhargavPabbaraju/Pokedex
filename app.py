@@ -2,7 +2,8 @@ from flask import Flask,render_template,request
 from flask_cors import CORS,cross_origin
 import pymongo
 import certifi
-
+import requests
+import base64
 
 from data import typeImages
 
@@ -20,10 +21,17 @@ currentForm = 0
 poke = None
 currentPoke = None
 
+url = 'https://www.serebii.net/pokemon/art/460.png'
+response = requests.get(url)
+
+
+
+
 
 @app.route("/")
 @cross_origin()
 def hello_world():
+    
     return render_template("index.html",pokes=pokemon_list,typeImages=typeImages,poke_data=None,form=0)
 
 @app.route("/search",methods=["POST"])
@@ -57,4 +65,4 @@ def formchange():
     
 
 if __name__=="__main__":
-    app.run(host="0.0.0.0",port=5001,debug=True)
+    app.run(host="0.0.0.0",port=5001,debug=False)
