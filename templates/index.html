@@ -17,15 +17,17 @@
 </head>
 
 <body class="content">
-    <form class="form-group form row pt-2" method="post" action="/search">
-        <label for="select-poke" class="text-primary col-2 ps-4 pe-2 pt-1 fs-5">Select Pokemon:</label>
-        <select name="select-poke" id="select-poke" class="select-poke form-control col" onchange="this.form.submit()">
-            <option>Select a Pokemon</option>
-            {% for poke in pokes %}
-            <option>{{ poke }}</option>
-            {% endfor %}
-        </select>
-    </form>
+    <div class="container p-5">
+        <form class="form-group form row pt-2" method="post" action="/search">
+            <select name="select-poke" id="select-poke" class="select-poke form-select text-center text-danger fw-bold" onchange="this.form.submit()">
+                <option>Select a Pokemon</option>
+                {% for poke in pokes %}
+                <option>{{ poke }}</option>
+                {% endfor %}
+            </select>
+        </form>
+    </div>
+
     <div class="outer">
         <form class="pokedex" method="post" action="/formchange" id="pokedex">
             <img src="/static/image.png">
@@ -35,7 +37,7 @@
             <p class="name">{{ poke_data[form]['name'] }}</p>
             <p class="species">{{ poke_data[form]['species'] }}</p>
             <div class="ht">
-                Ht:<span class="height">{{(poke_data[form]['ht']+' ').rjust(8,'ㅤ') }}</span>
+                Ht:<span class="height">{{ (poke_data[form]['ht']+' ').rjust(8,'ㅤ') }}</span>
             </div>
             <div class="wt">
                 Wt:<span class="weight">{{ poke_data[form]['wt'].rjust(8,'ㅤ') }}</span>
@@ -72,6 +74,10 @@
             {% endif %}
         </form>
     </div>
+
+    <p class="text-center fs-2 p-3">
+        Made By <strong><a href="https://github.com/animefanbhargav/">@animefanbhargav</a></strong>
+    </p>
 
     <script>
         $(document).ready(function () {
