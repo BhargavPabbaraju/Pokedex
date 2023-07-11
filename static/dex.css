@@ -1,174 +1,155 @@
+@font-face {
+  font-family: rby;
+  src: url("PKMN RBYGSC.ttf");
+  font-weight: bold;
+}
 
-@font-face{
-    font-family: rby;
-    src: url('PKMN RBYGSC.ttf');
-    font-weight: bold;}
-
-
-
-.outer{
-    display: flex;
+.outer {
+  display: flex;
   justify-content: center;
-}
-.pokedex{
-    position:relative;
-    font-family:rby;
-    
+  margin-top: 1rem;
 }
 
-
-
-.ht,.wt{
-    color:black;
-    position:absolute;
-    left:128px;
-    top:424px;
-    font-size:12px;
-    
-    
+.pokedex {
+  position: relative;
+  font-family: rby;
 }
 
-.ht .height,.wt .weight{
-    position:relative;
-    font-size:12px;
-    left:4px;
+.ht,
+.wt {
+  color: black;
+  position: absolute;
+  left: 128px;
+  top: 424px;
+  font-size: 12px;
 }
 
-.wt{
-    top:448px;
-    
+.ht .height,
+.wt .weight {
+  position: relative;
+  font-size: 12px;
+  left: 4px;
 }
 
-
-
-.type1{
-    position:absolute;
-    left:402px;
-    top:446px;
-    width:120px;
-    height:36px;
-    
+.wt {
+  top: 448px;
 }
 
-.type2{
-    position:absolute;
-    left:548px;
-    top:446px;
-    width:120px;
-    height:36px;
-    
+.type1 {
+  position: absolute;
+  left: 402px;
+  top: 446px;
+  width: 120px;
+  height: 36px;
 }
 
-.main-sprite{
-    position:absolute;
-    left:128px;
-    top:198px;
-
-    
+.type2 {
+  position: absolute;
+  left: 548px;
+  top: 446px;
+  width: 120px;
+  height: 36px;
 }
 
-.atk-heading{
-    position:absolute;
-    left:408px;
-    top:280px;
-    
+.main-sprite {
+  position: absolute;
+  left: 128px;
+  top: 198px;
 }
 
-.atk{
-    position:absolute;
-    left:408px;
-    top:312px;
+.atk-heading {
+  position: absolute;
+  left: 408px;
+  top: 280px;
 }
 
-.def-heading{
-    position:absolute;
-    left:464px;
-    top:280px;
-    
+.atk {
+  position: absolute;
+  left: 408px;
+  top: 312px;
 }
 
-.def{
-    position:absolute;
-    left:464px;
-    top:312px;
+.def-heading {
+  position: absolute;
+  left: 464px;
+  top: 280px;
 }
 
-.spa-heading{
-    position:absolute;
-    left:520px;
-    top:280px;
-    
+.def {
+  position: absolute;
+  left: 464px;
+  top: 312px;
 }
 
-.spa{
-    position:absolute;
-    left:524px;
-    top:312px;
+.spa-heading {
+  position: absolute;
+  left: 520px;
+  top: 280px;
 }
 
-
-.spd-heading{
-    position:absolute;
-    left:578px;
-    top:280px;
-    
+.spa {
+  position: absolute;
+  left: 524px;
+  top: 312px;
 }
 
-.spd{
-    position:absolute;
-    left:580px;
-    top:312px;
+.spd-heading {
+  position: absolute;
+  left: 578px;
+  top: 280px;
 }
 
-.sp-heading{
-    position:absolute;
-    left:648px;
-    top:280px;
-    
+.spd {
+  position: absolute;
+  left: 580px;
+  top: 312px;
 }
 
-.sp{
-    position:absolute;
-    left:640px;
-    top:312px;
+.sp-heading {
+  position: absolute;
+  left: 648px;
+  top: 280px;
 }
 
-.species{
-    color:white;
-    position:absolute;
-    left:440px;
-    top:230px;
-    font-size:12px;
+.sp {
+  position: absolute;
+  left: 640px;
+  top: 312px;
 }
 
-.name{
-    color:white;
-    position:absolute;
-    left:440px;
-    top:190px;
-    
+.species {
+  color: white;
+  position: absolute;
+  left: 440px;
+  top: 230px;
+  font-size: 12px;
 }
 
-.prev-button{
-    background: transparent;
-    border: none !important;
-    font-size:0;
-    position:absolute;
-    left:272px;
-    top:412px;
-    width:44px;
-    height:48px;
-
+.name {
+  color: white;
+  position: absolute;
+  left: 440px;
+  top: 190px;
 }
 
-.next-button{
-    background: transparent;
-    border: none !important;
-    font-size:0;
-    position:absolute;
-    left:333px;
-    top:412px;
-    width:44px;
-    height:48px;
+.prev-button {
+  background: transparent;
+  border: none !important;
+  font-size: 0;
+  position: absolute;
+  left: 272px;
+  top: 412px;
+  width: 44px;
+  height: 48px;
+}
 
+.next-button {
+  background: transparent;
+  border: none !important;
+  font-size: 0;
+  position: absolute;
+  left: 333px;
+  top: 412px;
+  width: 44px;
+  height: 48px;
 }
